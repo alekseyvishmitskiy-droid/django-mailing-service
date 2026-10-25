@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Панель мониторинга сервиса рассылок</h2>
+    <div class="row mt-3">
+        <div class="col-md-4">
+            <div class="card bg-primary text-white mb-3">
+                <div class="card-header">Всего рассылок</div>
+                <div class="card-body"><h3>{{ total_mailings }}</h3></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-info text-white mb-3">
+                <div class="card-header">Уникальные клиенты</div>
+                <div class="card-body"><h3>{{ unique_recipients }}</h3></div>
+            </div>
+        </div>
+    </div>
+    <h4 class="mt-4">Статистика отправки сообщений</h4>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card border-success mb-3">
+                <div class="card-header text-success fw-bold">Успешные попытки</div>
+                <div class="card-body"><h3 class="text-success">{{ success_attempts }}</h3></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-danger mb-3">
+                <div class="card-header text-danger fw-bold">Неуспешные попытки</div>
+                <div class="card-body"><h3 class="text-danger">{{ failed_attempts }}</h3></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

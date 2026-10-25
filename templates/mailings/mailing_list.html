@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Список рассылок</h2>
+    <table class="table table-striped mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Тема письма</th>
+                <th>Статус</th>
+                <th>Владелец</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mailing in object_list %}
+            <tr>
+                <td>{{ mailing.pk }}</td>
+                <td>{{ mailing.message.subject }}</td>
+                <td><span class="badge bg-secondary">{{ mailing.status }}</span></td>
+                <td>{{ mailing.owner.email }}</td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4" class="text-center">Рассылок нет</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
